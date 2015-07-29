@@ -1,6 +1,6 @@
 {
   "name": "angular-jsx-graph",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "JSXGraph directives for AngularJS",
   "main": "./angular-jsx-graph",
   "scripts": {

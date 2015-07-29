@@ -1,0 +1,19 @@
+{
+  "name": "angular-jsx-graph",
+  "main": "./angular-jsx-graph.js",
+  "homepage": "https://github.com/tfoxy/angular-jsx-graph",
+  "dependencies": {
+    "angular": "1.x.x"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.x.x"
+  },
+  "ignore": [
+    "**/*",
+    "!angular-jsx-graph.js",
+    "!angular-jsx-graph.min.js",
+    "!LICENSE"
+  ],
+  "author": "Tomás Fox <tomas.c.fox@gmail.com>",
+  "license": "MIT"
+}

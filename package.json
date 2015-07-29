@@ -1,0 +1,33 @@
+{
+  "name": "angular-jsx-graph",
+  "version": "0.0.0",
+  "description": "JSXGraph directives for AngularJS",
+  "main": "./angular-jsx-graph",
+  "scripts": {
+    "test": "karma start karma.conf.js --single-run",
+    "min": "uglifyjs angular-jsx-graph.js --comments '/^!/' --compress --mangle -o angular-jsx-graph.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tfoxy/angular-jsx-graph"
+  },
+  "bugs": {
+    "url": "https://github.com/tfoxy/angular-jsx-graph/issues"
+  },
+  "keywords": [
+    "angular",
+    "jsxgraph",
+    "graph"
+  ],
+  "devDependencies": {
+    "karma": "0.12.x",
+    "karma-mocha": "0.2.x",
+    "karma-chai": "0.1.x",
+    "karma-sinon": "1.0.x",
+    "karma-phantomjs-launcher": "0.2.x",
+    "karma-chrome-launcher": "0.2.x",
+    "jsxgraph": "jsxgraph/jsxgraph#v0.99.3"
+  },
+  "author": "Tomás Fox <tomas.c.fox@gmail.com>",
+  "license": "MIT"
+}

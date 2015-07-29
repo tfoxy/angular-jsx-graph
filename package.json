@@ -20,6 +20,10 @@
     "graph"
   ],
   "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "*",
+    "phantomjs": ">=1.9",
     "karma": "0.12.x",
     "karma-mocha": "0.2.x",
     "karma-chai": "0.1.x",

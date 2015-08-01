@@ -6,6 +6,7 @@ describe('jsxGraph', function() {
   beforeEach(module('jsxGraph'));
 
   beforeEach(inject(function($rootScope, $compile, $document) {
+    _bodyChildren = [];
     scope = $rootScope.$new();
     compileAndDigest = function(html) {
       var element = angular.element(html);
@@ -17,7 +18,6 @@ describe('jsxGraph', function() {
 
       return element;
     };
-    _bodyChildren = [];
   }));
 
   afterEach(inject(function() {

@@ -1,5 +1,5 @@
 /*!
- * angular-jsx-graph v0.1.0
+ * angular-jsx-graph v0.2.0
  * https://github.com/tfoxy/angular-jsx-graph
  *
  * Copyright 2015 Tomás Fox
@@ -15,7 +15,8 @@
       .constant('JXG', JXG)
       .directive('jxgBoard', jxgBoardDirective)
       .directive('jxgCallback', jxgCallbackDirective)
-      .directive('jxgCreate', jxgCreateDirective);
+      .directive('jxgCreate', jxgCreateDirective)
+      .directive('jxgResponsive', jxgResponsiveDirective);
 
   jxgBoardDirective.$inject = ['JXG'];
 
@@ -74,6 +75,32 @@
       for (var i = 0; i < elements.length; ++i) {
         board.create.apply(board, elements[i]);
       }
+    }
+  }
+
+  jxgResponsiveDirective.$inject = ['$window'];
+
+  function jxgResponsiveDirective($window) {
+    var directive = {
+      restrict: 'A',
+      require: 'jxgBoard',
+      link: link
+    };
+
+    return directive;
+
+    ////////////////
+
+    function link(scope, element, attrs, ctrl) {
+      var board = ctrl.board;
+
+      var resize = function() {
+        var container = board.containerObj;
+        board.resizeContainer(container.clientWidth, container.clientHeight, true);
+        board.fullUpdate();
+      };
+
+      angular.element($window).bind('resize', resize);
     }
   }
 })();

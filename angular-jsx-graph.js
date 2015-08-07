@@ -1,5 +1,5 @@
 /*!
- * angular-jsx-graph v0.2.0
+ * angular-jsx-graph v0.2.1
  * https://github.com/tfoxy/angular-jsx-graph
  *
  * Copyright 2015 Tomás Fox

@@ -18,25 +18,25 @@
       .directive('jxgCreate', jxgCreateDirective)
       .directive('jxgResponsive', jxgResponsiveDirective);
 
-  jxgBoardDirective.$inject = ['JXG'];
+  Controller.$inject = ['$window', 'JXG', '$attrs', '$scope'];
 
-  function jxgBoardDirective(JXG) {
+  function Controller($window, JXG, $attrs, $scope) {
+    /* jshint validthis: true */
+    var boardAttributes = $scope.$eval($attrs.jxgBoard);
+    this.board = JXG.JSXGraph.initBoard($attrs.id, boardAttributes);
+  }
+
+  jxgBoardDirective.$inject = [];
+
+  function jxgBoardDirective() {
     var directive = {
       restrict: 'A',
-      controller: controller
+      controller: Controller
     };
-
-    controller.$inject = ['$attrs', '$scope'];
 
     return directive;
 
     ////////////
-
-    function controller($attrs, $scope) {
-      /* jshint validthis: true */
-      var boardAttributes = $scope.$eval($attrs.jxgBoard);
-      this.board = JXG.JSXGraph.initBoard($attrs.id, boardAttributes);
-    }
   }
 
   function jxgCallbackDirective() {

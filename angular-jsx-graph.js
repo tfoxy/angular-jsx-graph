@@ -18,9 +18,9 @@
       .directive('jxgCreate', jxgCreateDirective)
       .directive('jxgResponsive', jxgResponsiveDirective);
 
-  Controller.$inject = ['$window', 'JXG', '$attrs', '$scope'];
+  Controller.$inject = ['JXG', '$attrs', '$scope'];
 
-  function Controller($window, JXG, $attrs, $scope) {
+  function Controller(JXG, $attrs, $scope) {
     /* jshint validthis: true */
     var boardAttributes = $scope.$eval($attrs.jxgBoard);
     this.board = JXG.JSXGraph.initBoard($attrs.id, boardAttributes);
@@ -78,9 +78,14 @@
     }
   }
 
+  // jxg-responsive directive based on:
+  // jsxgraph.uni-bayreuth.de/~michael/jsxgui/Examples/groups/responsive-Sf2Q63-w9Y4.html
+
   jxgResponsiveDirective.$inject = ['$window'];
 
   function jxgResponsiveDirective($window) {
+    var window = angular.element($window);
+
     var directive = {
       restrict: 'A',
       require: 'jxgBoard',
@@ -100,7 +105,11 @@
         board.fullUpdate();
       };
 
-      angular.element($window).bind('resize', resize);
+      window.on('resize', resize);
+
+      scope.$on('$destroy', function() {
+        window.off('resize', resize);
+      });
     }
   }
 })();
